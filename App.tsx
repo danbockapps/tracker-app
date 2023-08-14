@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import { FC, createContext, useState } from 'react'
+import Login from './Login'
+import Reports from './Reports'
 
-export default function App() {
+const AppContext = createContext({})
+
+const App: FC = () => {
+  const [loggedIn, setLoggedIn] = useState(false)
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <AppContext.Provider value={{ loggedIn, setLoggedIn }}>
+      {loggedIn ? <Reports /> : <Login />}
+      <StatusBar style='auto' />
+    </AppContext.Provider>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
