@@ -1,7 +1,8 @@
 import { FC, useContext, useState } from 'react'
-import { StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { AppContext } from './appContext'
 import colors from './colors'
+import sharedStyles from './sharedStyles'
 
 const Login: FC = () => {
   const [email, setEmail] = useState('')
@@ -14,7 +15,7 @@ const Login: FC = () => {
         autoComplete='email'
         autoCapitalize='none'
         keyboardType='email-address'
-        style={styles.textInput}
+        style={sharedStyles.textInput}
         placeholder='E-mail'
         placeholderTextColor='#ccc'
         value={email}
@@ -23,7 +24,7 @@ const Login: FC = () => {
       <TextInput
         autoComplete='password'
         autoCapitalize='none'
-        style={styles.textInput}
+        style={sharedStyles.textInput}
         placeholder='Password'
         placeholderTextColor='#ccc'
         secureTextEntry={true}
@@ -31,7 +32,7 @@ const Login: FC = () => {
         onChangeText={setPassword}
       />
       <TouchableOpacity
-        style={styles.button}
+        style={sharedStyles.button}
         onPress={() =>
           fetch('https://bock.esmmweighless.com/tracker/rest/api.php?q=login', {
             method: 'POST',
@@ -59,20 +60,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
-  },
-  textInput: {
-    height: 50,
-    marginHorizontal: 30,
-    marginBottom: 30,
-    borderBottomWidth: 1,
-  },
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 50,
-    marginHorizontal: 30,
-    marginBottom: 30,
-    backgroundColor: colors.purple,
   },
 })
 
