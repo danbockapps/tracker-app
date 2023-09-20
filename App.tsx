@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar'
 import { FC, useState } from 'react'
-import Login from './Login'
-import Reports from './Reports'
-import { AppContext } from './appContext'
+import Login from './app/Login'
+import Reports from './app/Reports'
+import { AppContext } from './app/appContext'
 
 const App: FC = () => {
   const [reports, setReports] = useState<any>()
