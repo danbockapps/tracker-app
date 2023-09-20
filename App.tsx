@@ -1,16 +1,15 @@
 import { StatusBar } from 'expo-status-bar'
-import { FC, createContext, useState } from 'react'
+import { FC, useState } from 'react'
 import Login from './Login'
 import Reports from './Reports'
-
-const AppContext = createContext({})
+import { AppContext } from './appContext'
 
 const App: FC = () => {
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [reports, setReports] = useState<any>()
 
   return (
-    <AppContext.Provider value={{ loggedIn, setLoggedIn }}>
-      {loggedIn ? <Reports /> : <Login />}
+    <AppContext.Provider value={{ reports, setReports }}>
+      {reports ? <Reports /> : <Login />}
       <StatusBar style='auto' />
     </AppContext.Provider>
   )
