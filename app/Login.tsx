@@ -1,6 +1,7 @@
 import { FC, useContext, useState } from 'react'
 import { StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native'
 import { AppContext } from './appContext'
+import colors from './colors'
 
 const Login: FC = () => {
   const [email, setEmail] = useState('')
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     height: 50,
     marginHorizontal: 30,
     marginBottom: 30,
-    backgroundColor: '#f099ff',
+    backgroundColor: colors.purple,
   },
 })
 

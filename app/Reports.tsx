@@ -1,5 +1,6 @@
-import { FC, Fragment, useContext } from 'react'
+import { FC, useContext } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import ReportUnit from './ReportUnit'
 import { AppContext } from './appContext'
 
 const Reports: FC = () => {
@@ -7,13 +8,15 @@ const Reports: FC = () => {
 
   return (
     <View style={styles.container}>
-      {ctx.reports &&
-        ctx.reports.map((report, i) => (
-          <Fragment key={i}>
-            <Text>Week {report.week_id}</Text>
-            <Text>{JSON.stringify(report)}</Text>
-          </Fragment>
-        ))}
+      {ctx.reports?.map((report, i) => (
+        <View key={i}>
+          <Text>Week {report.week_id}</Text>
+          <View style={styles.row}>
+            <ReportUnit report={report} propertyName='weight' />
+            <ReportUnit report={report} propertyName='physact_minutes' />
+          </View>
+        </View>
+      ))}
     </View>
   )
 }
@@ -24,6 +27,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
     margin: 15,
+  },
+  row: {
+    flexDirection: 'row',
+    display: 'flex',
   },
 })
 
