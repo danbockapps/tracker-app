@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "My Progress Portal",
-    "slug": "My Progress Portal",
+    "slug": "my-progress-portal",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,7 +13,8 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.esmmpreventdiabetes.my-progress-portal"
     },
     "android": {
       "adaptiveIcon": {
@@ -23,6 +24,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": { "eas": { "projectId": "df91cdaa-cae2-484c-8810-0776eff45f4c" } },
+    "owner": "danbock"
   }
 }
